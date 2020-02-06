@@ -1,5 +1,5 @@
-import {PolymerElement} from '@polymer/polymer/polymer-element.js';
-import {html} from '@polymer/polymer/lib/utils/html-tag.js';
+import { PolymerElement } from "@polymer/polymer/polymer-element.js";
+import { html } from "@polymer/polymer/lib/utils/html-tag.js";
 
 import '@vaadin/vaadin-board/vaadin-board.js';
 import '@vaadin/vaadin-charts/vaadin-chart.js';
@@ -115,7 +115,8 @@ class DashboardView extends PolymerElement {
             <vaadin-chart
               type="column"
               id="monthlyVisitors"
-              title="Monthly visitors per city">
+              title="Monthly visitors per city"
+            >
             </vaadin-chart>
           </div>
         </div>
@@ -128,23 +129,30 @@ class DashboardView extends PolymerElement {
           </div>
           <div class="wrapper">
             <div class="card">
-              <vaadin-chart
-                id="responseTimes"
-                title="Response times">
+              <vaadin-chart id="responseTimes" title="Response times">
               </vaadin-chart>
             </div>
           </div>
         </vaadin-board-row>
+      </vaadin-board>
     `;
   }
 
   static get is() {
-    return 'dashboard-view';
+    return "dashboard-view";
   }
 
+  constructor() {
+    super();
+    this.currentUsers = 745;
+    this.numEvents = "54.6k";
+    this.conversionRate = 18;
+  }
   static get properties() {
     return {
-      // Declare your properties here.
+      currentUsers: Number,
+      numEvents: String,
+      conversionRate: Number
     };
   }
 }

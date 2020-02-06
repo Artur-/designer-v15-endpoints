@@ -4,7 +4,8 @@ import {Router} from '@vaadin/router';
 import './global-styles';
 import './main-layout';
 
-import './views/masterdetail/master-detail-view';
+import "./views/dashboard/dashboard-view";
+import "./views/masterdetail/master-detail-view";
 
 const {serverSideRoutes} = new Flow({
   imports: () => import('../target/frontend/generated-flow-imports')
@@ -15,8 +16,9 @@ const routes = [
     path: '',
     component: 'main-layout',
     children: [
-      {path: '', component: 'dashboard-view'},
-      {path: 'Master-Detail', component: 'master-detail-view'},
+      { path: "", component: "dashboard-view" },
+      { path: "Dashboard", component: "dashboard-view" },
+      { path: "Master-Detail", component: "master-detail-view" },
 
       // add more client-side routes here
       // {
