@@ -1,9 +1,11 @@
 import { PolymerElement } from "@polymer/polymer/polymer-element.js";
 import { html } from "@polymer/polymer/lib/utils/html-tag.js";
 
-import '@vaadin/vaadin-board/vaadin-board.js';
-import '@vaadin/vaadin-charts/vaadin-chart.js';
-import '@vaadin/vaadin-lumo-styles/all-imports.js';
+import "@vaadin/vaadin-board/vaadin-board.js";
+import "@vaadin/vaadin-charts/vaadin-chart.js";
+import "@vaadin/vaadin-lumo-styles/all-imports.js";
+
+import { getCurrentUsers } from "../../generated/DashboardEndpoint";
 
 class DashboardView extends PolymerElement {
   static get template() {
@@ -147,6 +149,10 @@ class DashboardView extends PolymerElement {
     this.currentUsers = 745;
     this.numEvents = "54.6k";
     this.conversionRate = 18;
+  }
+  async connectedCallback() {
+    super.connectedCallback();
+    this.currentUsers = await getCurrentUsers();
   }
   static get properties() {
     return {
